@@ -1,6 +1,5 @@
-import React, { createContext, useCallback, useEffect } from 'react';
-import { useNavigate } from 'react-router';
-import { useState } from 'react/cjs/react.development';
+import React, { createContext, useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from './api';
 export const UserContext = createContext();
 export const UserStorage = ({ children }) => {
@@ -9,14 +8,15 @@ export const UserStorage = ({ children }) => {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+
   const userLogout = useCallback(
     async function () {
-      navigate('/login');
       setData(null);
       setError(null);
       setLoading(false);
       setLogin(false);
       window.localStorage.removeItem('token');
+      navigate('/login');
     },
     [navigate],
   );
