@@ -12,7 +12,7 @@ function Header() {
           <Dogs />
         </Link>
         {data ? (
-          <Link className={styles.login} to="/conta">
+          <Link className={styles.login} to="/login">
             {data.nome}
             <button onClick={userLogout}>sair</button>
           </Link>
