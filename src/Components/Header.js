@@ -4,7 +4,7 @@ import styles from './Header.module.css';
 import { ReactComponent as Dogs } from '../Assets/dogs.svg';
 import { UserContext } from '../UserContext';
 function Header() {
-  const { data, userLogout } = useContext(UserContext);
+  const { data } = useContext(UserContext);
   return (
     <header className={styles.header}>
       <nav className={`${styles.nav} container`}>
@@ -14,7 +14,6 @@ function Header() {
         {data ? (
           <Link className={styles.login} to="/login">
             {data.nome}
-            <button onClick={userLogout}>sair</button>
           </Link>
         ) : (
           <Link className={styles.login} to="/login">
