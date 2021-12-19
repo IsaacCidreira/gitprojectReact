@@ -13,6 +13,7 @@ const UserStats = () => {
     async function getData() {
       const { url, options } = STATS_GET();
       await request(url, options);
+      console.log(data);
     }
     getData();
   }, [request]);
